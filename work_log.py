@@ -1,4 +1,4 @@
-"""Enter work logs and search existing logs
+"""Enter work logs and search existing logs.
 
 Users have the option of entering a work log or searching existing logs. They
 also have the option of editing or deleteing existing entries.
