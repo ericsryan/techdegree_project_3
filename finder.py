@@ -176,9 +176,7 @@ def exact_search():
     print("Enter the search term that you would like to use.\n")
     term = input("> ")
     for line in logs:
-        if (term.lower() in line['task_date'].lower() or
-            term.lower() in line['task_title'].lower() or
-            term.lower() in line['task_time'].lower() or
+        if (term.lower() in line['task_title'].lower() or
             term.lower() in line['task_notes'].lower()):
             exact_log_list.append(line)
     if len(exact_log_list) < 1:
