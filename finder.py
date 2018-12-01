@@ -29,10 +29,11 @@ def search_menu():
             clear_screen()
             break
         print("Do you want to search by:\n"
-              "a) Exact Date\n"
-              "b) Range of Dates\n"
-              "c) Exact Search\n"
-              "d) Regex Pattern\n\n"
+              "a) Exact Date\n" +
+              "b) Range of Dates\n" +
+              "c) Time Spent\n" +
+              "d) Exact Search\n" +
+              "e) Regex Pattern\n\n" +
               "[M]ain Menu\n"
               )
         search_selection = input("> ")
@@ -41,8 +42,10 @@ def search_menu():
         elif search_selection.upper() == 'B':
             search_range()
         elif search_selection.upper() == 'C':
-            exact_search()
+            time_search()
         elif search_selection.upper() == 'D':
+            exact_search()
+        elif search_selection.upper() == 'E':
             search_regex()
         elif search_selection.upper() == 'M':
             clear_screen()
@@ -141,6 +144,28 @@ def search_range():
         clear_screen()
     else:
         show_logs(range_log_list)
+
+
+def time_search():
+    """Search work logs by time."""
+    logs = store_logs()
+    time_list = []
+    clear_screen()
+    print("Enter the amount of time for the " +
+          "logs that you would like to see.\n")
+    time = input("> ")
+    for line in logs:
+        if str(time) == line['task_time']:
+            time_list.append(line)
+    if len(time_list) == 0:
+        clear_screen()
+        return_to_menu = input("There are no matches for " +
+                               "that amouht of time.\n" +
+                               "You will be returned to the search menu.\n" +
+                               "Press 'Enter' to continue.")
+        clear_screen()
+    else:
+        show_logs(time_list)
 
 
 def exact_search():
