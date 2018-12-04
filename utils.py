@@ -52,7 +52,7 @@ def nav_bar(options):
 def order_logs():
     """Order the work logs by date."""
     logs = []
-    with open('log.csv', 'r') as csv_file:
+    with open('log.csv', 'r', newline='') as csv_file:
         log_reader = csv.reader(csv_file)
         for line in log_reader:
             logs.append(line)
@@ -62,7 +62,7 @@ def order_logs():
     logs.sort()
     for line in logs:
         line[0] = datetime.datetime.strftime(line[0], '%m/%d/%Y')
-    with open('log.csv', 'w') as csv_file:
+    with open('log.csv', 'w', newline='') as csv_file:
         log_writer = csv.writer(csv_file)
         fieldnames = ['task_date', 'task_title', 'task_time', 'task_notes']
         log_writer.writerow(fieldnames)
@@ -74,7 +74,7 @@ def store_logs():
     """Retrieve logs from the database to be used by the search program."""
     order_logs()
     logs = []
-    with open('log.csv', 'r') as csv_file:
+    with open('log.csv', 'r', newline='') as csv_file:
         log_reader = csv.DictReader(csv_file)
         for line in log_reader:
             logs.append(line)

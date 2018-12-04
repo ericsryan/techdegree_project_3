@@ -13,10 +13,10 @@ def main_menu():
     """Disply logging options."""
     clear_screen()
     while True:
-        print("WORK LOG\n"
-              "What would you like to do?\n"
-              "a) Add new entry\n"
-              "b) Search in existing entries\n"
+        print("WORK LOG\n" +
+              "What would you like to do?\n" +
+              "a) Add new entry\n" +
+              "b) Search in existing entries\n" +
               "c) Quit program"
               )
         menu_selection = input("> ")

@@ -289,7 +289,7 @@ def delete_log(log_list, index):
             logs.remove(line)
             log_list.remove(line)
             break
-    with open('log.csv', 'w') as csv_file:
+    with open('log.csv', 'w', newline='') as csv_file:
         fieldnames = ['task_date', 'task_title', 'task_time', 'task_notes']
         taskwriter = csv.DictWriter(csv_file, fieldnames=fieldnames)
         headerwriter = csv.writer(csv_file)
@@ -344,7 +344,7 @@ def edit_log(log_list, index):
                     line['task_notes'] = new_notes
                     log_list[index] = new_notes
                 break
-    with open('log.csv', 'w') as csv_file:
+    with open('log.csv', 'w', newline='') as csv_file:
         fieldnames = ['task_date', 'task_title', 'task_time', 'task_notes']
         taskwriter = csv.DictWriter(csv_file, fieldnames=fieldnames)
         headerwriter = csv.writer(csv_file)

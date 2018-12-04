@@ -49,7 +49,7 @@ class Log:
 
     def write_event(self):
         """Write a new work log to the database."""
-        with open('log.csv', 'a') as csv_file:
+        with open('log.csv', 'a', newline='') as csv_file:
             fieldnames = ['task_date', 'task_title', 'task_time', 'task_notes']
             taskwriter = csv.DictWriter(csv_file, fieldnames=fieldnames)
             taskwriter.writerow({
